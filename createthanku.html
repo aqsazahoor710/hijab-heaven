@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Hijab Heaven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fef6f0;
+      font-family: 'Times New Roman', Times, serif;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin-top: 50px;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 2.5em;
+      margin-bottom: 25px;
+      color: #000;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeup 2s ease-out forwards;
+    }
+    @keyframes fadeup{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .section-title {
+      margin-top: 40px;
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #000;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    li {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    li span {
+      font-weight: bold;
+      color: #000;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-style: italic;
+      font-size: 1.1em;
+      color: #000;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      /* background-color: #8b4c4c; */
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none; 
+       background-color: #000;
+    }
+
+    .btn:hover {
+      background-color: #8d9193;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Hijab Heaven!</h1>
+    <p><b>Thank you for joining our modest fashion family.</b></p>
+
+    <p>✨ Your account has been successfully created.</p>
+    <p>You’re now part of a growing community that believes in elegance, empowerment, and modesty with meaning.</p>
+
+    <div class="section-title">🌷 What You Can Do Next:</div>
+    <ul>
+      <li>🛍 <span>Explore Our Latest Collection</span> — Discover hijabs, accessories, and styles curated just for you.</li>
+      <li>🎁 <span>Enjoy Member-Only Perks</span> — Early access to new arrivals, discounts, and giveaways.</li>
+    </ul>
+
+    <div class="section-title">☁️ You Belong Here.</div>
+    <p>At Hijab Heaven, you’re not just a customer — you’re family. Let your style shine with purpose.</p>
+
+    <div class="footer">
+    <a href="./hijab.html" class="btn">Start Shopping</a>
+    </div>
+  </div>
+</body>
+</html>

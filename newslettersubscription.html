@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscription Confirmed</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #fef6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .confirmation-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .check-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #28a745;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px auto;
+    }
+
+    .check-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    h1 {
+      color: #2e8b57;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-top: 5px;
+      margin-bottom: 30px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .home-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .home-button:hover {
+      background-color: #8d9193;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-container">
+    <p>Your subscription to our list has been confirmed.</p>
+    <div class="check-icon">
+      <!-- White Tick SVG -->
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.00039 10.8008L2.93372 7.73415L1.86606 8.80082L6.00039 12.9352L14.0004 4.93515L12.9337 3.86848L6.00039 10.8008Z"/>
+      </svg>
+    </div>
+    <p>Thank you for subscribing!</p>
+    <a class="home-button" href="./hijab.html">Back to Home</a>
+  </div>
+</body>
+</html>

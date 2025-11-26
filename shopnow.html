@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy It Now</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #fef6f0;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    .radio-label {
+      margin-top: 10px;
+    }
+    .payment-details {
+      display: none;
+      margin-top: 15px;
+    }
+    .pay-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .pay-button:hover {
+      background-color: #7a7e80;
+    }
+  </style>
+</head>
+<body>
+<form class="form-container" action="order_process.php" method="POST">
+  <h1>Shop Now</h1>
+
+  <!-- Contact Section -->
+  <div class="section">
+    <h2>Contact</h2>
+    <input type="email" name="email" placeholder="Email or Phone Number" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <label>
+      <input type="checkbox" name="newsletter" /> Email me with news and offers
+    </label>
+  </div>
+
+  <!-- Delivery Section -->
+  <div class="section">
+    <h2>Delivery</h2>
+    <input type="text" name="firstname" placeholder="First Name" required />
+    <input type="text" name="lastname" placeholder="Last Name" required />
+    <input type="text" name="address" placeholder="Address" required />
+    <input type="text" name="apartment" placeholder="Apartment, suite, etc. (optional)" />
+    <input type="text" name="city" placeholder="City" required />
+    <input type="number" name="postalcode" placeholder="Postal Code" required />
+    <label>
+      <input type="checkbox" name="saveinfo" /> Save this information for the next time
+    </label>
+  </div>
+
+  <!-- ✅ Products Section -->
+  <div class="section">
+    <h2>Products</h2>
+
+    <label><input type="checkbox" id="abayaCheckbox" onclick="selectProduct('abaya')"> Abaya</label>
+    <select id="abayaQuantity" style="display:none;" onchange="updateTotal()">
+      <option value="1">Quantity: 1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <label><input type="checkbox" id="hijabCheckbox" onclick="selectProduct('hijab')"> Hijab</label>
+    <select id="hijabQuantity" style="display:none;" onchange="updateTotal()">
+      <option value="1">Quantity: 1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <label><input type="checkbox" id="accessoriesCheckbox" onclick="selectProduct('accessories')"> Accessories</label>
+    <select id="accessoriesQuantity" style="display:none;" onchange="updateTotal()">
+      <option value="1">Quantity: 1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <!-- <option value="4">4</option> -->
+    </select>
+  </div>
+
+  <!-- Payment Section -->
+  <div class="section">
+    <h2>Payment</h2>
+    <label class="radio-label">
+      <input type="radio" name="payment" value="cod" checked onclick="togglePayment('cod')" />
+      Cash on Delivery (COD)
+    </label>
+    <label class="radio-label">
+      <input type="radio" name="payment" value="card" onclick="togglePayment('card')" />
+      Debit-Credit Card
+    </label>
+
+    <div id="card-details" class="payment-details">
+      <input type="text" name="cardnumber" placeholder="Card Number" />
+      <input type="text" name="cardexpiry" placeholder="Expiration Date (MM/YY)" />
+      <input type="text" name="cardcvv" placeholder="Security Code (CVV)" />
+      <input type="text" name="cardname" placeholder="Name on Card" />
+    </div>
+  </div>
+
+  <!-- Hidden fields for backend -->
+  <input type="hidden" id="product_name" name="product_name" />
+  <input type="hidden" id="price" name="price" />
+  <input type="hidden" id="quantity" name="quantity" />
+
+  <p><strong>Selected Product:</strong> <span id="display-product"></span></p>
+  <p><strong>Total Price:</strong> Rs. <span id="display-price"></span></p>
+
+  <button type="submit" class="pay-button" id="cod-button">Place Order</button>
+</form>
+
+<script>
+  function togglePayment(method) {
+    const cardDetails = document.getElementById('card-details');
+    cardDetails.style.display = (method === 'card') ? 'block' : 'none';
+  }
+
+  // Ensure only one product can be selected
+  function selectProduct(type) {
+    const products = ['abaya', 'hijab', 'accessories'];
+    products.forEach(p => {
+      if (p !== type) {
+        document.getElementById(p + 'Checkbox').checked = false;
+        document.getElementById(p + 'Quantity').style.display = 'none';
+      }
+    });
+
+    const checkbox = document.getElementById(type + 'Checkbox');
+    const quantity = document.getElementById(type + 'Quantity');
+    if (checkbox.checked) {
+      quantity.style.display = 'block';
+    } else {
+      quantity.style.display = 'none';
+    }
+    updateTotal();
+  }
+
+  function updateTotal() {
+    let basePrice = parseFloat(urlParams.get('price')) || 0;
+    let qty = 1;
+    let productName = urlParams.get('product') || 'Default Product';
+
+    if (document.getElementById('abayaCheckbox').checked) {
+      qty = parseInt(document.getElementById('abayaQuantity').value);
+    } else if (document.getElementById('hijabCheckbox').checked) {
+      qty = parseInt(document.getElementById('hijabQuantity').value);
+    } else if (document.getElementById('accessoriesCheckbox').checked) {
+      qty = parseInt(document.getElementById('accessoriesQuantity').value);
+    }
+
+    let total = basePrice * qty;
+    document.getElementById('display-product').textContent = productName;
+    document.getElementById('display-price').textContent = total;
+
+    document.getElementById('product_name').value = productName;
+    document.getElementById('price').value = total;
+    document.getElementById('quantity').value = qty;
+  }
+
+  // Get URL parameters for initial values
+  const urlParams = new URLSearchParams(window.location.search);
+  document.getElementById('display-product').textContent = urlParams.get('product') || 'Default Product';
+  document.getElementById('display-price').textContent = urlParams.get('price') || '0';
+  document.getElementById('product_name').value = urlParams.get('product') || 'Default Product';
+  document.getElementById('price').value = urlParams.get('price') || '0';
+  document.getElementById('quantity').value = 1;
+</script>
+</body>
+</html>

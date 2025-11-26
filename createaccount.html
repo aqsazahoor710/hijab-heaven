@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #fef6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .register-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .register-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .register-container button:hover {
+      background-color: #7a7e80;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Create Account</h2>
+    
+    <!-- ✅ Form added -->
+    <form action="register_process.php" method="POST">
+      <input type="text" name="firstname" placeholder="First Name" required />
+      <input type="text" name="lastname" placeholder="Last Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Create Account</button>
+    </form>
+
+  </div>
+</body>
+</html>

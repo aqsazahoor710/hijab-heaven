@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Showcase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f2f2f2;
+      color: #000;
+    }
+
+/* Header Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 10px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 65px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #800020; /* Burgundy tone */
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 25px;
+      font-size: 18px;
+    }
+
+    .nav-icons a {
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-icons a:hover {
+      color: #800020;
+    }
+
+
+    @media (max-width: 768px) {
+      nav {
+        display: none; /* Can be changed to a hamburger menu */
+      }
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+     .buy-button {
+      background-color: black;
+      border: none;
+      padding: 10px 10px;
+      /* border-radius: 20px; */
+      margin-top: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .buy-button:hover {
+      background-color: #8d9193;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      height: 385px;
+      border-radius: 5px;
+      width: 250px;
+    }
+
+    .product-card h3 {
+      margin: 15px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    padding: 60px 0 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin: 0px 0px 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    margin-left: 30px;
+
+}
+
+
+.footer-col p {
+    opacity: 0.8;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+.footer-col ul {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: white;
+    opacity: 0.8;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    color: #800020;
+}
+
+.aqsa{
+    padding: 10px 10px;
+    margin-left: 30px;
+}
+
+.ar{
+    color: black;
+    text-align: center;
+    padding-top: 10px 10px;
+    margin-left: 30px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.8;
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="./hijab logo.jpg" alt="Hijab Heaven Logo">
+  </div>
+  <nav>
+    <a href="./hijab.html">HOME</a>
+    <a href="./abyas.html">ABAYAS</a>
+    <a href="./hijabcollection.html">HIJABS</a>
+    <a href="./accessories.html">ACCESSORIES</a>
+    <a href="./about.html">ABOUT US</a>
+    <a href="./contactsana.html">CONTACT US</a>
+  </nav>
+  <div class="nav-icons">
+          <a href="./login.html"><i class="fas fa-user" style="margin-right: 2rem;"></i></a>
+  </div>
+</header>
+
+<!-- Section 1: First 7 products -->
+<section>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="./images/1 tasbih.jpg" alt="1 tasbeeh">
+      <h3>COPPER TASBEEH</h3>
+      <p>Rs.11,990.00 </p>
+      <a href="./shopnow.html?product=COPPER+TASBEEH&price=11990">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/2 atsbih.jpg" alt="2 tasbeeh">
+      <h3>WHITE-GOLD TASBEEH</h3>
+      <p>Rs.1099.00</p>
+      <a href="./shopnow.html?product=WHITE-GOLD+TASBEEH&price=1099">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/3 tasbih.jpg" alt="3 tasbeeh">
+      <h3>SOLID WHITE TASBEEH</h3>
+      <p>Rs.999.00</p>
+      <a href="./shopnow.html?product=SOLID+WHITE+TASBEEH&price=999">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/4 TASBIH.jpg" alt="4 tasbeeh">
+      <h3>PINK TASBEEH</h3>
+      <p>Rs.1,090.00</p>
+      <a href="./shopnow.html?product=PINK+TASBEEH&price=1090">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/green magnet.webp" alt="5 pin">
+      <h3>GREEN MAGNET HIJAB PIN</h3>
+      <p>Rs.300.00</p>
+      <a href="./shopnow.html?product=GREEN+MAGNET+HIJAB+PIN&price=300">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/aqua pin.webp" alt="6 pin">
+      <h3>AQUA MARINE HIJAB PIN</h3>
+      <p>Rs.350.00</p>
+      <a href="./shopnow.html?product=AQUA+MARINE+HIJAB+PIN&price=350">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/RUBY.webp" alt="7 pin">
+      <h3>RUBY CRYSTAL HIJAB PIN</h3>
+      <p>Rs.390.00</p>
+      <a href="./shopnow.html?product=RUBY+CRYSTAL+HIJAB+PIN&price=390">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+    <div class="product-card">
+      <img src="./images/moonlight.webp" alt="8 pins">
+      <h3>MOONLIGHT HIJAB PIN</h3>
+      <p>Rs.560.00</p>
+      <a href="./shopnow.html?product=MOONLIGHT+HIJAB+PIN&price=560">
+        <button class="buy-button">Shop Now</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Hijab Heaven</h3>
+                    <p>Providing elegant and modest fashion for Muslim women worldwide since 2020. If you have a desire to create the perfect Abaya captions for your gorgeous clicks, then these are the best ideas for you.</p>
+                </div>
+                <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <!-- <li><a href="./hijab.html">Home</a></li> -->
+            <li><a href="./hijabcollection.html">Hijabs</a></li>
+            <li><a href="./abyas.html">Abayas</a></li>
+            <li><a href="./accessories.html">Accessories</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contactsana.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="./faqhijab.html">FAQs</a></li>
+            <li><a href="./shiipingpolicy.html">Shipping Policy</a></li>
+            <li><a href="./returnexchange.html">Returns & Exchanges</a></li>
+            <li><a href="./sizechart.html">Size Chart</a></li>
+            <li><a href="./privacypolicy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter and get important updates</p>
+                    <div>
+                    <input type="email" class="aqsa" placeholder="Enter your email">
+                    <div>
+                    <a href="./newslettersubscription.html">
+                        <button type="submit" class="ar">Subscribe</button>
+                    </a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HIjabHeaven. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
